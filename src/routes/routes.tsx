@@ -1,11 +1,11 @@
-import App from "../App";
 import InstructionsPage from "../pages/InstructionsPage";
+import Root from "./Root";
 import { createBrowserRouter } from "react-router-dom";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Root />,
     children: [
       {
         path: "/instructions",
