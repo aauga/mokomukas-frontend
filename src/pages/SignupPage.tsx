@@ -1,5 +1,6 @@
-import { Alert, Button, Container, Form } from "react-bootstrap";
+import { Alert, Container } from "react-bootstrap";
 
+import SignupForm from "../components/signup/SignupForm";
 import getErrorMessage from "../utils/getErrorMessage";
 import { useNavigate } from "react-router-dom";
 import { useSignup } from "../api/signup/api";
@@ -16,19 +17,7 @@ export default function SignupPage() {
         <Alert variant="danger">{getErrorMessage(signup.error)}</Alert>
       )}
 
-      <Form onSubmit={onSubmit}>
-        <Form.Group className="mb-3">
-          <Form.Label>Slapyvardis:</Form.Label>
-          <Form.Control type="text" name="username" required />
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label>Slaptažodis:</Form.Label>
-          <Form.Control type="password" name="password" required />
-        </Form.Group>
-        <Button variant="primary" type="submit">
-          Registruotis
-        </Button>
-      </Form>
+      <SignupForm onSubmit={onSubmit} />
     </Container>
   );
 
