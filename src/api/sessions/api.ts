@@ -26,7 +26,7 @@ export function useLogin() {
 
   return useMutation({
     mutationFn: (data: SignupFormProps) =>
-      axiosInstance.post("/sessions", { user: data }),
+      axiosInstance.post("/sessions", { session: data }),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["users"] }),
   });
 }

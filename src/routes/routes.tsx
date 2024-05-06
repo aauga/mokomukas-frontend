@@ -1,6 +1,7 @@
 import InstructionsPage from "../pages/InstructionsPage";
 import LearningPage from "../pages/LearningPage";
 import LessonsPage from "../pages/LessonsPage";
+import LoginPage from "../pages/LoginPage";
 import ProtectedRoute from "../components/common/ProtectedRoute";
 import Root from "./Root";
 import SignupPage from "../pages/SignupPage";
@@ -28,6 +29,14 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute unauthorizedOnly={true}>
             <SignupPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/login",
+        element: (
+          <ProtectedRoute unauthorizedOnly={true}>
+            <LoginPage />
           </ProtectedRoute>
         ),
       },
