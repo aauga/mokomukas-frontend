@@ -3,7 +3,7 @@ import { useAuthenticatedUser } from "../../api/sessions/api";
 import { useNavigate } from "react-router-dom";
 
 interface ProtectedRouteProps {
-  unauthorizedOnly: boolean;
+  unauthorizedOnly?: boolean;
   children: React.ReactNode;
 }
 
