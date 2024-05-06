@@ -1,6 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
-import { AxiosResponse } from "axios";
 import { SignupFormProps } from "./types";
 import { User } from "../../types/user";
 import { axiosInstance } from "../../config/axiosInstance";
@@ -18,9 +17,27 @@ export function useSignup() {
   return useMutation({
     mutationFn: (data: SignupFormProps) =>
       axiosInstance.post("/users", { user: data }),
-    onSuccess: (res: AxiosResponse<User>) => {
-      const user = res.data;
-      queryClient.invalidateQueries({ queryKey: ["users", user.id] });
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["users"] }),
+  });
+}
+
+export function useLogin() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: (data: SignupFormProps) =>
+      axiosInstance.post("/sessions", { user: data }),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["users"] }),
+  });
+}
+
+export function useLogout() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: () => axiosInstance.delete("/sessions"),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["users"] });
     },
   });
 }

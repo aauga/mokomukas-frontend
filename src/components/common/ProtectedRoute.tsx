@@ -11,15 +11,18 @@ export default function ProtectedRoute({
   unauthorizedOnly,
   children,
 }: ProtectedRouteProps) {
-  const user = useAuthenticatedUser();
+  const { data: user, isLoading } = useAuthenticatedUser();
   const navigate = useNavigate();
 
-  if (user.isLoading) {
+  const loggedIn = !!user;
+
+  if (isLoading) {
     return <Spinner />;
   }
 
-  if (!!user || (user && unauthorizedOnly)) {
+  if (loggedIn || (loggedIn && unauthorizedOnly)) {
     navigate("/");
+    return null;
   }
 
   return <>{children}</>;
