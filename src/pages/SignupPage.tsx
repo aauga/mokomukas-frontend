@@ -3,7 +3,7 @@ import { Alert, Container } from "react-bootstrap";
 import SignupForm from "../components/signup/SignupForm";
 import getErrorMessage from "../utils/getErrorMessage";
 import { useNavigate } from "react-router-dom";
-import { useSignup } from "../api/signup/api";
+import { useSignup } from "../api/sessions/api";
 
 export default function SignupPage() {
   const signup = useSignup();
