@@ -36,8 +36,6 @@ export function useLogout() {
 
   return useMutation({
     mutationFn: () => axiosInstance.delete("/sessions"),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["users"] });
-    },
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["users"] }),
   });
 }
