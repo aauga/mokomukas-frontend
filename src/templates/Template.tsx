@@ -1,3 +1,5 @@
+import "./templates.css";
+
 import { Palette } from "../config/palette";
 import TestTemplate from "./TestTemplate";
 

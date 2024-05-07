@@ -1,0 +1,21 @@
+.clickable {
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 2px solid #ccc;
+}
+
+.clickable:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.clickable:active {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.correct {
+  background-color: rgba(0, 255, 0, 0.1);
+}
+
+.incorrect {
+  background-color: rgba(255, 0, 0, 0.1);
+}
