@@ -1,5 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
+import { BASE_URL } from "../../config/constants";
 import { SignupFormProps } from "./types";
 import { User } from "../../types/user";
 import { axiosInstance } from "../../config/axiosInstance";
@@ -36,6 +37,9 @@ export function useLogout() {
 
   return useMutation({
     mutationFn: () => axiosInstance.delete("/sessions"),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["users"] }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["users"] });
+      window.location.replace(BASE_URL);
+    },
   });
 }
