@@ -7,6 +7,7 @@ type TemplateProps = {
 
 const templates = new Map<string, JSX.Element>([
   ["test_template", <TestTemplate />],
+  ["test_template_2", <h1>asdf</h1>],
 ]);
 
 export default function Template(props: TemplateProps) {

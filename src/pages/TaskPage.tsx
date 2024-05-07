@@ -1,6 +1,8 @@
 import { Col, Container, Row, Spinner } from "react-bootstrap";
 
 import ErrorPage from "./ErrorPage";
+import NextTaskButton from "../components/tasks/NextTaskButton";
+import { TaskPageContext } from "../contexts/TaskPageContext";
 import Template from "../templates/Template";
 import { useParams } from "react-router-dom";
 import { useTask } from "../api/tasks/api";
@@ -24,17 +26,19 @@ export default function TaskPage() {
   }
 
   return (
-    <Container style={{ marginTop: "20px" }}>
-      <h1>Learning page</h1>
+    <TaskPageContext.Provider value={{ taskId }}>
+      <Container style={{ marginTop: "20px" }}>
+        <h1>Learning page</h1>
 
-      <Row className="gap-5">
-        <Col>
-          <Template templateName="test_template" />
-        </Col>
-        <Col lg={4} style={{ backgroundColor: "cyan" }}>
-          <div>2 of 2</div>
-        </Col>
-      </Row>
-    </Container>
+        <Row className="gap-3">
+          <Col>
+            <Template templateName={task.data?.template_id!} />
+          </Col>
+          <Col lg={4}>
+            <NextTaskButton className="w-100" />
+          </Col>
+        </Row>
+      </Container>
+    </TaskPageContext.Provider>
   );
 }
