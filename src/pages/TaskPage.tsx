@@ -1,7 +1,7 @@
 import { Col, Container, Row, Spinner } from "react-bootstrap";
 
 import ErrorPage from "./ErrorPage";
-import NextTaskButton from "../components/tasks/NextTaskButton";
+import TaskChangeButton from "../components/tasks/TaskChangeButton";
 import { TaskPageContext } from "../contexts/TaskPageContext";
 import Template from "../templates/Template";
 import { useParams } from "react-router-dom";
@@ -14,8 +14,11 @@ export default function TaskPage() {
   const lessonIdInt = parseInt(lessonId!);
   const userLesson = useUserLesson(lessonIdInt);
 
-  const taskId = userLesson.data?.pending_user_tasks[0].task_id!;
-  const task = useTask(taskId, !!taskId);
+  const pendingTasks = userLesson.data?.pending_user_tasks ?? [];
+  const isLastTask = pendingTasks.length === 1;
+
+  const taskId = pendingTasks[0]?.task_id ?? 0;
+  const task = useTask(taskId, userLesson.isSuccess);
 
   if (userLesson.isLoading || task.isLoading) {
     return <Spinner />;
@@ -26,7 +29,7 @@ export default function TaskPage() {
   }
 
   return (
-    <TaskPageContext.Provider value={{ taskId }}>
+    <TaskPageContext.Provider value={{ taskId, isLastTask }}>
       <Container style={{ marginTop: "20px" }}>
         <h1>Learning page</h1>
 
@@ -35,7 +38,7 @@ export default function TaskPage() {
             <Template templateName={task.data?.template_id!} />
           </Col>
           <Col lg={4}>
-            <NextTaskButton className="w-100" />
+            <TaskChangeButton className="w-100" />
           </Col>
         </Row>
       </Container>

@@ -4,12 +4,15 @@ import { FinishTaskModal } from "./FinishTaskModal";
 import { LoadingButton } from "../common/LoadingButton";
 import { TaskPageContext } from "../../contexts/TaskPageContext";
 
-interface NextTaskButtonProps {
+interface TaskChangeButtonProps {
   className: string;
 }
 
-export default function NextTaskButton({ className }: NextTaskButtonProps) {
-  const { taskId } = useContext(TaskPageContext) || {};
+const BUTTON_NEXT = "Pereiti į kitą užduotį";
+const BUTTON_LAST = "Baigti pamoką";
+
+export default function TaskChangeButton({ className }: TaskChangeButtonProps) {
+  const { taskId, isLastTask } = useContext(TaskPageContext) || {};
   const [showModal, setModal] = useState(false);
 
   return (
@@ -21,7 +24,7 @@ export default function NextTaskButton({ className }: NextTaskButtonProps) {
         className={className}
         onClick={() => setModal(true)}
       >
-        Kita užduotis
+        {isLastTask ? BUTTON_LAST : BUTTON_NEXT}
       </LoadingButton>
     </>
   );

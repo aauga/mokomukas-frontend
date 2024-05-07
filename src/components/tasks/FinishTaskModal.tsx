@@ -5,19 +5,25 @@ import { TaskPageContext } from "../../contexts/TaskPageContext";
 import { useContext } from "react";
 import { useFinishTask } from "../../api/user-tasks/api";
 
+const TITLE_NEXT = "Ar norite pereiti į kitą užduotį?";
+const TITLE_LAST = "Ar norite baigti pamoką?";
+
+const DESCRIPTION =
+  "Jei esate nepažymėję visų kenksmingų vietų, prarasite gyvybę už kiekvieną nepažymėtą vietą.";
+
+const BUTTON_NEXT = "Pereiti";
+const BUTTON_LAST = "Baigti pamoką";
+
 export function FinishTaskModal(props: any) {
-  const { taskId } = useContext(TaskPageContext) || {};
+  const { taskId, isLastTask } = useContext(TaskPageContext) || {};
   const finishTask = useFinishTask(taskId!);
 
   return (
     <Modal {...props} size="lg" centered>
       <Modal.Header closeButton>
-        <Modal.Title>Ar norite pereiti į kitą užduotį?</Modal.Title>
+        <Modal.Title>{isLastTask ? TITLE_LAST : TITLE_NEXT}</Modal.Title>
       </Modal.Header>
-      <Modal.Body>
-        Jei esate nepažymėję visų kenksmingų vietų, prarasite gyvybę už
-        kiekvieną nepažymėtą vietą.
-      </Modal.Body>
+      <Modal.Body>{DESCRIPTION}</Modal.Body>
       <Modal.Footer>
         <Button
           variant="secondary"
@@ -27,7 +33,7 @@ export function FinishTaskModal(props: any) {
           Grįžti
         </Button>
         <LoadingButton loading={finishTask.isPending} onClick={onClick}>
-          Pereiti
+          {isLastTask ? BUTTON_LAST : BUTTON_NEXT}
         </LoadingButton>
       </Modal.Footer>
     </Modal>
