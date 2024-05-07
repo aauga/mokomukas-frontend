@@ -1,8 +1,8 @@
 interface WelcomeTextProps {
   username: string;
-  style?: React.CSSProperties;
+  className?: string;
 }
 
-export default function WelcomeText({ username, style }: WelcomeTextProps) {
-  return <h1 style={style}>Sveiki sugrįžę, {username} 👋</h1>;
+export default function WelcomeText({ username, className }: WelcomeTextProps) {
+  return <h1 className={className}>Sveiki sugrįžę, {username} 👋</h1>;
 }

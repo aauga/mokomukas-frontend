@@ -12,9 +12,11 @@ export default function LessonsPage() {
 
   return (
     <Container>
-      {user && (
-        <WelcomeText style={{ marginTop: 30 }} username={user?.username} />
-      )}
+      {user && <WelcomeText className="mt-4" username={user?.username} />}
+
+      <div className="mt-4">
+        <h2>Pamokų sąrašas</h2>
+      </div>
     </Container>
   );
 }
