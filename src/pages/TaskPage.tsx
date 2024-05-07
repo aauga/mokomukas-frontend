@@ -1,9 +1,11 @@
 import { Col, Container, Row, Spinner } from "react-bootstrap";
 
 import ErrorPage from "./ErrorPage";
+import { FinishedLessonModal } from "../components/lessons/FinishedLessonModal";
 import TaskChangeButton from "../components/tasks/TaskChangeButton";
 import { TaskPageContext } from "../contexts/TaskPageContext";
 import Template from "../templates/Template";
+import { UserLessonStatus } from "../types/user-lesson";
 import { useParams } from "react-router-dom";
 import { useTask } from "../api/tasks/api";
 import { useUserLesson } from "../api/user-lessons/api";
@@ -22,6 +24,10 @@ export default function TaskPage() {
 
   if (userLesson.isLoading || task.isLoading) {
     return <Spinner />;
+  }
+
+  if (userLesson.data?.status === UserLessonStatus.FINISHED) {
+    return <FinishedLessonModal show={true} />;
   }
 
   if (userLesson.isError || task.isError) {
