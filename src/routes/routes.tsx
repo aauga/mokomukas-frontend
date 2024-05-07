@@ -1,10 +1,10 @@
 import InstructionsPage from "../pages/InstructionsPage";
-import LearningPage from "../pages/LearningPage";
 import LessonsPage from "../pages/LessonsPage";
 import LoginPage from "../pages/LoginPage";
 import ProtectedRoute from "../components/common/ProtectedRoute";
 import Root from "./Root";
 import SignupPage from "../pages/SignupPage";
+import TaskPage from "../pages/TaskPage";
 import { createBrowserRouter } from "react-router-dom";
 
 export const router = createBrowserRouter([
@@ -21,8 +21,8 @@ export const router = createBrowserRouter([
         element: <InstructionsPage />,
       },
       {
-        path: "/lessons/1",
-        element: <LearningPage />,
+        path: "/lesson/:lessonId",
+        element: <TaskPage />,
       },
       {
         path: "/signup",
