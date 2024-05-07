@@ -6,9 +6,8 @@ import { NavLink } from "react-router-dom";
 import { useAuthenticatedUser } from "../../api/sessions/api";
 
 export function Navbar() {
-  const user = useAuthenticatedUser();
-
-  const loggedIn = user.isSuccess;
+  const { data: user, isSuccess } = useAuthenticatedUser();
+  const loggedIn = user && isSuccess;
 
   return (
     <BootstrapNavbar expand="lg" className="bg-body-tertiary">
