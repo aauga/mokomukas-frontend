@@ -21,7 +21,7 @@ export const router = createBrowserRouter([
         element: <InstructionsPage />,
       },
       {
-        path: "/lesson/:lessonId",
+        path: "/lessons/:lessonId",
         element: <TaskPage />,
       },
       {
