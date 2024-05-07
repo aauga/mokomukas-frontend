@@ -1,9 +1,9 @@
-import { Lesson } from "../../types/lesson";
+import { AvailableLessons } from "./types";
 import { axiosInstance } from "../../config/axiosInstance";
 import { useQuery } from "@tanstack/react-query";
 
-export function useLessons() {
-  return useQuery<Lesson[]>({
+export function useAvailableLessons() {
+  return useQuery<AvailableLessons>({
     queryFn: async () => (await axiosInstance.get("/lessons")).data,
     queryKey: ["lessons"],
   });
