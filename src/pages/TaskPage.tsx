@@ -1,9 +1,12 @@
 import { Col, Container, Row, Spinner } from "react-bootstrap";
+import {
+  TaskPageContext,
+  TaskPageContextType,
+} from "../contexts/TaskPageContext";
 
 import ErrorPage from "./ErrorPage";
 import { FinishedLessonModal } from "../components/lessons/FinishedLessonModal";
 import TaskChangeButton from "../components/tasks/TaskChangeButton";
-import { TaskPageContext } from "../contexts/TaskPageContext";
 import Template from "../templates/Template";
 import { UserLessonStatus } from "../types/user-lesson";
 import { useParams } from "react-router-dom";
@@ -34,8 +37,14 @@ export default function TaskPage() {
     return <ErrorPage />;
   }
 
+  const contextValue: TaskPageContextType = {
+    userLessonId: userLesson.data?.id!,
+    taskId,
+    isLastTask,
+  };
+
   return (
-    <TaskPageContext.Provider value={{ taskId, isLastTask }}>
+    <TaskPageContext.Provider value={contextValue}>
       <Container style={{ marginTop: "20px" }}>
         <h1>Learning page</h1>
 
