@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 
 export const useTaskElements = (taskId: number, enabled?: boolean) => {
   return useQuery<TaskElement[]>({
-    queryKey: ["task-elements", taskId],
+    queryKey: ["tasks", "task-elements", taskId],
     queryFn: async () =>
       (await axiosInstance.get(`/tasks/${taskId}/task_elements`)).data,
     enabled,

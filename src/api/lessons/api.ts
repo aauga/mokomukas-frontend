@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 
 export function useAvailableLessons() {
   return useQuery<AvailableLessons>({
-    queryFn: async () => (await axiosInstance.get("/lessons")).data,
-    queryKey: ["lessons"],
+    queryFn: async () => (await axiosInstance.get("/lessons/available")).data,
+    queryKey: ["lessons", "available"],
   });
 }
