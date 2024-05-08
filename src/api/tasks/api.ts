@@ -6,6 +6,6 @@ export const useTask = (taskId: number, enabled?: boolean) => {
   return useQuery<Task>({
     queryFn: async () => (await axiosInstance.get(`/tasks/${taskId}`)).data,
     queryKey: ["tasks", taskId],
-    enabled: enabled,
+    enabled,
   });
 };

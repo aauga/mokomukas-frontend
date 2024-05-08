@@ -6,20 +6,20 @@ import { axiosInstance } from "../../config/axiosInstance";
 export const useUserLesson = (lessonId: number) => {
   return useQuery<UserLesson>({
     queryFn: async () =>
-      (await axiosInstance.get(`/user_lessons?lesson_id=${lessonId}`)).data,
-    queryKey: ["user-lessons", lessonId],
+      (await axiosInstance.get(`/lessons/${lessonId}/users`)).data,
+    queryKey: ["lessons", lessonId, "user-lessons"],
   });
 };
 
 export const useCreateUserLesson = (lessonId: number) => {
   const queryClient = useQueryClient();
-  const requestBody = { user_lesson: { lesson_id: lessonId } };
 
   return useMutation({
     mutationFn: async () =>
-      (await axiosInstance.post("/user_lessons", requestBody)).data,
-    mutationKey: ["user-lessons", lessonId],
+      (await axiosInstance.post(`/lessons/${lessonId}/users`)).data,
     onSuccess: () =>
-      queryClient.invalidateQueries({ queryKey: ["user-lessons"] }),
+      queryClient.invalidateQueries({
+        queryKey: ["lessons", lessonId, "user-lessons"],
+      }),
   });
 };
