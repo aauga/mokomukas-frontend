@@ -38,7 +38,7 @@ export function useLogout(userId: number) {
   return useMutation({
     mutationFn: () => axiosInstance.post(`/users/${userId}/logout`),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["users", userId] });
+      queryClient.invalidateQueries({ queryKey: ["users"] });
       window.location.replace(BASE_URL);
     },
   });
