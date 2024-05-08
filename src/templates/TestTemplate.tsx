@@ -1,22 +1,18 @@
 import { Navbar as BootstrapNavbar, Container } from "react-bootstrap";
 
-import { TemplateContext } from "../contexts/TemplateContext";
-import getClassName from "../utils/getClassName";
-import { useContext } from "react";
+import ClickableElement from "../components/templates/ClickableElement";
 
 const Palette = { primary: "#FF6600", white: "#FFFFFF" };
 
 export default function TestTemplate() {
-  const { userTaskElements } = useContext(TemplateContext)!;
-
   return (
     <>
       <Navbar />
       <Container>
         <h2 className="my-3">Dėmesio!</h2>
-        <p className={getClassName(1, userTaskElements)}>
+        <ClickableElement taskElementId={1}>
           Jūsų siunta pateko į siuntų skyrių.
-        </p>
+        </ClickableElement>
       </Container>
     </>
   );
