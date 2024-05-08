@@ -9,7 +9,6 @@ import { Palette } from "../config/palette";
 import { Spinner } from "react-bootstrap";
 import { TaskPageContext } from "../contexts/TaskPageContext";
 import TestTemplate from "./TestTemplate";
-import { UserContext } from "../contexts/UserContext";
 import { UserTaskStatus } from "../types/user-task";
 import { useContext } from "react";
 import { useTaskElements } from "../api/task-elements/api";
