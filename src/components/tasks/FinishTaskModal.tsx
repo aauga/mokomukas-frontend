@@ -15,8 +15,8 @@ const BUTTON_NEXT = "Pereiti";
 const BUTTON_LAST = "Baigti pamoką";
 
 export function FinishTaskModal(props: any) {
-  const { taskId, isLastTask } = useContext(TaskPageContext) || {};
-  const finishTask = useFinishTask(taskId!);
+  const { userTaskId, isLastTask } = useContext(TaskPageContext) || {};
+  const finishTask = useFinishTask(userTaskId!);
 
   return (
     <Modal {...props} size="lg" centered>

@@ -38,7 +38,8 @@ export default function TaskPage() {
   }
 
   const contextValue: TaskPageContextType = {
-    userLessonId: userLesson.data?.id!,
+    userLessonId: userLesson.data!.id,
+    userTaskId: pendingTasks[0]!.id,
     taskId,
     isLastTask,
   };
