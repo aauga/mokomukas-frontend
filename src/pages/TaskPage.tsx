@@ -1,4 +1,4 @@
-import { Col, Container, Row, Spinner } from "react-bootstrap";
+import { Col, Container, Row, Spinner, Stack } from "react-bootstrap";
 import {
   TaskPageContext,
   TaskPageContextType,
@@ -6,6 +6,7 @@ import {
 
 import ErrorPage from "./ErrorPage";
 import { FinishedLessonModal } from "../components/lessons/FinishedLessonModal";
+import HintsBox from "../components/hints/HintsBox";
 import TaskChangeButton from "../components/tasks/TaskChangeButton";
 import Template from "../templates/Template";
 import { UserLessonStatus } from "../types/user-lesson";
@@ -54,7 +55,10 @@ export default function TaskPage() {
             <Template templateName={task.data?.template_id!} />
           </Col>
           <Col lg={4}>
-            <TaskChangeButton className="w-100" />
+            <Stack gap={4}>
+              <TaskChangeButton className="w-100" />
+              <HintsBox />
+            </Stack>
           </Col>
         </Row>
       </Container>
