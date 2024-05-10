@@ -7,15 +7,19 @@ import {
 import ErrorPage from "./ErrorPage";
 import { FinishedLessonModal } from "../components/lessons/FinishedLessonModal";
 import HintsBox from "../components/hints/HintsBox";
+import { NoHealthModal } from "../components/tasks/NoHealthModal";
 import TaskChangeButton from "../components/tasks/TaskChangeButton";
 import Template from "../templates/Template";
+import { UserContext } from "../contexts/UserContext";
 import { UserLessonStatus } from "../types/user-lesson";
+import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { useTask } from "../api/tasks/api";
 import { useUserLesson } from "../api/user-lessons/api";
 
 export default function TaskPage() {
   const { lessonId } = useParams();
+  const { user } = useContext(UserContext) ?? {};
 
   const lessonIdInt = parseInt(lessonId!);
   const userLesson = useUserLesson(lessonIdInt);
@@ -32,6 +36,10 @@ export default function TaskPage() {
 
   if (userLesson.data?.status === UserLessonStatus.FINISHED) {
     return <FinishedLessonModal show={true} />;
+  }
+
+  if (user?.health === 0 || user?.health === undefined) {
+    return <NoHealthModal show={true} />;
   }
 
   if (userLesson.isError || task.isError) {

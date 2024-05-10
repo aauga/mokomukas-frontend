@@ -25,6 +25,7 @@ export const useMarkUserTaskElement = (userTaskElementId: number) => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["user-tasks"] });
       queryClient.invalidateQueries({ queryKey: ["users"] });
+      queryClient.invalidateQueries({ queryKey: ["lessons"] });
     },
   });
 };
