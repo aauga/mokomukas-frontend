@@ -27,7 +27,13 @@ export function Navbar() {
             {loggedIn && <LogoutLink />}
           </Nav>
 
-          {!loggedIn && (
+          {loggedIn ? (
+            <Nav className="ms-auto">
+              <BootstrapNavbar.Text>{user.health ?? 0}</BootstrapNavbar.Text>
+              <BootstrapNavbar.Text>{user.level ?? 0}</BootstrapNavbar.Text>
+              <BootstrapNavbar.Text>{user.money ?? 0}</BootstrapNavbar.Text>
+            </Nav>
+          ) : (
             <Nav className="ms-auto">
               <Nav.Link as={NavLink} to={"/login"}>
                 Prisijungti
