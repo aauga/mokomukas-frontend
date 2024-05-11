@@ -31,8 +31,6 @@ export default function HintsBox() {
     );
   }
 
-  console.log(nextBuyableHintId);
-
   return (
     <div>
       <h2>Užuominos</h2>

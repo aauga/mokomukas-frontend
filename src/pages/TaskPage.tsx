@@ -8,6 +8,7 @@ import ErrorPage from "./ErrorPage";
 import { FinishedLessonModal } from "../components/lessons/FinishedLessonModal";
 import HintsBox from "../components/hints/HintsBox";
 import { NoHealthModal } from "../components/tasks/NoHealthModal";
+import StatisticsBox from "../components/tasks/StatisticsBox";
 import TaskChangeButton from "../components/tasks/TaskChangeButton";
 import Template from "../templates/Template";
 import { UserContext } from "../contexts/UserContext";
@@ -65,6 +66,7 @@ export default function TaskPage() {
           <Col lg={4}>
             <Stack gap={4}>
               <TaskChangeButton className="w-100" />
+              <StatisticsBox />
               <HintsBox />
             </Stack>
           </Col>
