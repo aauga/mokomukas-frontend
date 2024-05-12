@@ -4,6 +4,7 @@ import LessonCard, { LessonStatus } from "../components/lessons/LessonCard";
 import { AvailableLessons } from "../api/lessons/types";
 import LeaderboardBox from "../components/lessons/LeaderboardBox";
 import { Lesson } from "../types/lesson";
+import ShopBox from "../components/lessons/ShopBox";
 import WelcomeText from "../components/lessons/WelcomeText";
 import { useAuthenticatedUser } from "../api/sessions/api";
 import { useAvailableLessons } from "../api/lessons/api";
@@ -27,7 +28,8 @@ export default function LessonsPage() {
           <LessonsRow lessons={lessons ?? {}} />
         </Col>
         <Col lg={4}>
-          <Stack direction="vertical">
+          <Stack direction="vertical" gap={4}>
+            {user && <ShopBox />}
             <LeaderboardBox />
           </Stack>
         </Col>

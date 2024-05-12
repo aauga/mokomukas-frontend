@@ -5,3 +5,8 @@ export type Leaderboard = {
   streak?: number;
   leaderboard: User[];
 };
+
+export enum ResourceType {
+  HEALTH = "health",
+  EXPERIENCE_POINTS = "experience_points",
+}
