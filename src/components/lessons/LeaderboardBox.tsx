@@ -1,5 +1,6 @@
 import { Spinner, Stack } from "react-bootstrap";
 
+import { Palette } from "../../config/palette";
 import { User } from "../../types/user";
 import { UserContext } from "../../contexts/UserContext";
 import { useContext } from "react";
@@ -32,7 +33,7 @@ export default function LeaderboardBox() {
       <h3>Lyderių lentelė</h3>
 
       {user && (
-        <p>
+        <p style={{ color: Palette.primary }}>
           Jūs užimate {leaderboard.data?.personal_standing} vietą su{" "}
           {leaderboard.data?.streak} dienomis
         </p>
@@ -51,9 +52,10 @@ function PlacementRow({ user, index }: { user: User; index: number }) {
   return (
     <div style={{ display: "flex", justifyContent: "space-between" }}>
       <div>
-        {getPlacementText(index)} {user.username}
+        <span style={{ color: Palette.gray }}>{getPlacementText(index)}</span>{" "}
+        {user.username}
       </div>
-      <div>{user.day_streak} dienos</div>
+      <div style={{ color: Palette.gray }}>{user.day_streak} dienos</div>
     </div>
   );
 }

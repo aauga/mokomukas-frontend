@@ -10,7 +10,11 @@ export function Navbar() {
   const loggedIn = user && isSuccess;
 
   return (
-    <BootstrapNavbar expand="lg" className="bg-body-tertiary">
+    <BootstrapNavbar
+      expand="lg"
+      data-bs-theme="dark"
+      style={{ backgroundColor: "#1DB0F6" }}
+    >
       <Container>
         <BootstrapNavbar.Brand as={NavLink} to="/">
           Mokomukas

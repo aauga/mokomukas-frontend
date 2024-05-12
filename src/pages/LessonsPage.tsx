@@ -23,9 +23,17 @@ export default function LessonsPage() {
 
       <Row className="mt-4">
         <Col lg={8}>
-          <h2>Pamokų sąrašas</h2>
+          <div
+            style={{
+              backgroundColor: "white",
+              borderRadius: "16px",
+              padding: "16px",
+            }}
+          >
+            <h3>Pamokų sąrašas</h3>
 
-          <LessonsRow lessons={lessons ?? {}} />
+            <LessonsRow lessons={lessons ?? {}} />
+          </div>
         </Col>
         <Col lg={4}>
           <Stack direction="vertical" gap={4}>
