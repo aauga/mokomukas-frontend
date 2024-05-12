@@ -1,7 +1,8 @@
-import { Col, Container, Row, Spinner } from "react-bootstrap";
+import { Col, Container, Row, Spinner, Stack } from "react-bootstrap";
 import LessonCard, { LessonStatus } from "../components/lessons/LessonCard";
 
 import { AvailableLessons } from "../api/lessons/types";
+import LeaderboardBox from "../components/lessons/LeaderboardBox";
 import { Lesson } from "../types/lesson";
 import WelcomeText from "../components/lessons/WelcomeText";
 import { useAuthenticatedUser } from "../api/sessions/api";
@@ -19,11 +20,18 @@ export default function LessonsPage() {
     <Container>
       {user && <WelcomeText className="mt-4" username={user?.username} />}
 
-      <div className="mt-4">
-        <h2>Pamokų sąrašas</h2>
+      <Row className="mt-4">
+        <Col lg={8}>
+          <h2>Pamokų sąrašas</h2>
 
-        <LessonsRow lessons={lessons ?? {}} />
-      </div>
+          <LessonsRow lessons={lessons ?? {}} />
+        </Col>
+        <Col lg={4}>
+          <Stack direction="vertical">
+            <LeaderboardBox />
+          </Stack>
+        </Col>
+      </Row>
     </Container>
   );
 

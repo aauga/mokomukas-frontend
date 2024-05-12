@@ -1,6 +1,7 @@
 export type User = {
   id: number;
   username: string;
+  day_streak: number;
   health: number;
   money: number;
   level: number;
