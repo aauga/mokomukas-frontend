@@ -1,3 +1,4 @@
+import ErrorPage from "../pages/ErrorPage";
 import InstructionsPage from "../pages/InstructionsPage";
 import LessonsPage from "../pages/LessonsPage";
 import LoginPage from "../pages/LoginPage";
@@ -23,11 +24,19 @@ export const router = createBrowserRouter([
       },
       {
         path: "/lessons/:lessonId/instructions",
-        element: <SingleLessonPage />,
+        element: (
+          <ProtectedRoute>
+            <SingleLessonPage />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/lessons/:lessonId",
-        element: <TaskPage />,
+        element: (
+          <ProtectedRoute>
+            <TaskPage />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/signup",
@@ -44,6 +53,10 @@ export const router = createBrowserRouter([
             <LoginPage />
           </ProtectedRoute>
         ),
+      },
+      {
+        path: "*",
+        element: <ErrorPage />,
       },
     ],
   },
