@@ -1,7 +1,8 @@
 import { useContext, useState } from "react";
 
+import { ColorfulLoadingButton } from "../common/ColorfulLoadingButton";
 import { FinishTaskModal } from "./FinishTaskModal";
-import { LoadingButton } from "../common/LoadingButton";
+import { Palette } from "../../config/palette";
 import { TaskPageContext } from "../../contexts/TaskPageContext";
 
 interface TaskChangeButtonProps {
@@ -19,13 +20,14 @@ export default function TaskChangeButton({ className }: TaskChangeButtonProps) {
     <>
       <FinishTaskModal show={showModal} onHide={() => setModal(false)} />
 
-      <LoadingButton
+      <ColorfulLoadingButton
+        color={Palette.primary}
         loading={!taskId}
         className={className}
         onClick={() => setModal(true)}
       >
         {isLastTask ? BUTTON_LAST : BUTTON_NEXT}
-      </LoadingButton>
+      </ColorfulLoadingButton>
     </>
   );
 }

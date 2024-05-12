@@ -21,7 +21,7 @@ export default function StatisticsBox() {
       style={{ backgroundColor: "#fff", padding: "16px", borderRadius: "16px" }}
     >
       <h3 className="mb-3">
-        Klausimas {statistics.data!.current_task} iš{" "}
+        📈 Klausimas {statistics.data!.current_task} iš{" "}
         {statistics.data!.total_tasks}
       </h3>
 

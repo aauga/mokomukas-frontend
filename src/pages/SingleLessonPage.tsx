@@ -1,6 +1,8 @@
-import { Button, Col, Container, Row, Stack } from "react-bootstrap";
+import { Col, Container, Row, Stack } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 
+import { ColorfulLoadingButton } from "../components/common/ColorfulLoadingButton";
+import { Palette } from "../config/palette";
 import { useLesson } from "../api/lessons/api";
 
 export default function SingleLessonPage() {
@@ -34,22 +36,23 @@ export default function SingleLessonPage() {
                 pirmą kartą, rekomenduojame perskaityti instrukcijas, kad geriau
                 suprastumėte sistemos funkcionalumus.
               </p>
-              <Button
+              <ColorfulLoadingButton
+                color={Palette.money}
                 onClick={() => navigate("/instructions")}
-                variant="secondary"
               >
                 Ne, neperskaičiau. Skaityti instrukcijas
-              </Button>
+              </ColorfulLoadingButton>
             </div>
           </Stack>
         </Col>
         <Col lg={4}>
-          <Button
+          <ColorfulLoadingButton
+            color={Palette.primary}
             onClick={() => navigate(`/lessons/${lessonId}`)}
             className="w-100"
           >
             Pereiti prie užduočių
-          </Button>
+          </ColorfulLoadingButton>
         </Col>
       </Row>
     </Container>

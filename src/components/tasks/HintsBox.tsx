@@ -4,7 +4,8 @@ import {
   useBuyHint,
 } from "../../api/user-hints/api";
 
-import { LoadingButton } from "../common/LoadingButton";
+import { ColorfulLoadingButton } from "../common/ColorfulLoadingButton";
+import { Palette } from "../../config/palette";
 import { Spinner } from "react-bootstrap";
 import { TaskPageContext } from "../../contexts/TaskPageContext";
 import { useContext } from "react";
@@ -24,16 +25,28 @@ export default function HintsBox() {
 
   if (hints.data?.length === 0) {
     return (
-      <div>
-        <h2>Užuominos</h2>
+      <div
+        style={{
+          backgroundColor: "white",
+          borderRadius: "16px",
+          padding: "16px",
+        }}
+      >
+        <h2>🤔 Užuominos</h2>
         <p>Užuominų nėra</p>
       </div>
     );
   }
 
   return (
-    <div>
-      <h2>Užuominos</h2>
+    <div
+      style={{
+        backgroundColor: "white",
+        borderRadius: "16px",
+        padding: "16px",
+      }}
+    >
+      <h2>🤔 Užuominos</h2>
 
       {hintDescriptions.data?.map((description, index) => (
         <div key={index}>
@@ -42,13 +55,14 @@ export default function HintsBox() {
       ))}
 
       {nextBuyableHintId && (
-        <LoadingButton
+        <ColorfulLoadingButton
+          color={Palette.primary}
           loading={buyHint.isPending}
           onClick={() => buyHint.mutate()}
           className="w-100"
         >
           Pirkti užuominą
-        </LoadingButton>
+        </ColorfulLoadingButton>
       )}
     </div>
   );

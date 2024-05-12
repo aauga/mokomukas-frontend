@@ -57,10 +57,10 @@ export default function TaskPage() {
   return (
     <TaskPageContext.Provider value={contextValue}>
       <Container style={{ marginTop: "20px" }}>
-        <h1>Learning page</h1>
-
         <Row className="gap-3">
           <Col>
+            <h1>{task.data?.name}</h1>
+            <p>{task.data?.description}</p>
             <Template templateName={task.data?.template_id!} />
           </Col>
           <Col lg={4}>

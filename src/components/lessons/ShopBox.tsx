@@ -1,4 +1,5 @@
-import { LoadingButton } from "../common/LoadingButton";
+import { ColorfulLoadingButton } from "../common/ColorfulLoadingButton";
+import { Palette } from "../../config/palette";
 import { ResourceType } from "../../api/users/types";
 import { Stack } from "react-bootstrap";
 import { UserContext } from "../../contexts/UserContext";
@@ -22,23 +23,25 @@ export default function ShopBox() {
       <h3>🛒 Parduotuvė</h3>
 
       <Stack direction="vertical" gap={2}>
-        <LoadingButton
+        <ColorfulLoadingButton
+          color={Palette.health}
           disabled={user!.money < 100 || user!.health === 5}
           loading={buyResources.isPending}
           style={{ backgroundColor: "" }}
           onClick={() => buyResources.mutate(ResourceType.HEALTH)}
         >
           Pirkti 1 gyvybę už 100 pinigų
-        </LoadingButton>
+        </ColorfulLoadingButton>
 
-        <LoadingButton
+        <ColorfulLoadingButton
+          color={Palette.level}
           disabled={user!.money < 100}
           loading={buyResources.isPending}
           style={{ backgroundColor: "" }}
           onClick={() => buyResources.mutate(ResourceType.EXPERIENCE_POINTS)}
         >
           Pirkti 100 patirties taškų už 100 pinigų
-        </LoadingButton>
+        </ColorfulLoadingButton>
       </Stack>
     </Stack>
   );
