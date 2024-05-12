@@ -21,19 +21,19 @@ const BUTTON_TEXT_START = "Pradėti pamoką";
 const BUTTON_TEXT_CONTINUE = "Tęsti pamoką";
 const BUTTON_TEST_FINISHED = "Pamoka užbaigta";
 
-const COLOR_PALETTE = ["#CE82FF", "#3BD35C", "#5990FB"];
-const BACKGROUND_COLOR =
-  COLOR_PALETTE[Math.floor(Math.random() * COLOR_PALETTE.length)];
-
 export default function LessonCard({ lesson, status }: LessonCardProps) {
   const { user } = useContext(UserContext) || {};
   const navigate = useNavigate();
   const createUserLesson = useCreateUserLesson(lesson.id);
 
+  const colorPalette = ["#CE82FF", "#3BD35C", "#5990FB"];
+  const backgroundColor =
+    colorPalette[Math.floor(Math.random() * colorPalette.length)];
+
   return (
     <Card
       style={{
-        backgroundColor: BACKGROUND_COLOR,
+        backgroundColor,
         border: 0,
         borderRadius: "16px",
         color: "white",
@@ -43,7 +43,7 @@ export default function LessonCard({ lesson, status }: LessonCardProps) {
         <Card.Title>{lesson.name}</Card.Title>
         <Card.Text>{lesson.description || "Nėra aprašymo"}</Card.Text>
         <WhiteLoadingButton
-          color={BACKGROUND_COLOR}
+          color={backgroundColor}
           className="w-100"
           loading={createUserLesson.isPending}
           onClick={onClick}

@@ -24,6 +24,7 @@ export default function LessonsPage() {
       <Row className="mt-4">
         <Col lg={8}>
           <div
+            className="mb-4"
             style={{
               backgroundColor: "white",
               borderRadius: "16px",
@@ -73,7 +74,7 @@ export default function LessonsPage() {
 
   function mapLessons(lessons: Lesson[], status: LessonStatus) {
     return lessons.map((lesson) => (
-      <Col key={lesson.id} lg={6} xl={4} className="mb-3">
+      <Col key={lesson.id} lg={6} className="mb-3">
         <LessonCard lesson={lesson} status={status} />
       </Col>
     ));
