@@ -6,7 +6,7 @@ import {
 
 import ErrorPage from "./ErrorPage";
 import { FinishedLessonModal } from "../components/lessons/FinishedLessonModal";
-import HintsBox from "../components/hints/HintsBox";
+import HintsBox from "../components/tasks/HintsBox";
 import { NoHealthModal } from "../components/tasks/NoHealthModal";
 import StatisticsBox from "../components/tasks/StatisticsBox";
 import TaskChangeButton from "../components/tasks/TaskChangeButton";
