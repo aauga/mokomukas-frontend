@@ -26,9 +26,8 @@ export const useFinishTask = (userTaskId: number) => {
     mutationFn: async () =>
       (await axiosInstance.put(`/user_tasks/${userTaskId}/finish`)).data,
     onSuccess: () => {
-      queryClient.invalidateQueries({
-        queryKey: ["user-lessons"],
-      });
+      queryClient.invalidateQueries({ queryKey: ["user-lessons"] });
+      queryClient.invalidateQueries({ queryKey: ["users"] });
     },
   });
 };
