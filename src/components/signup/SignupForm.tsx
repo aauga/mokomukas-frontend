@@ -1,4 +1,6 @@
-import { Button, Form } from "react-bootstrap";
+import { ColorfulLoadingButton } from "../common/ColorfulLoadingButton";
+import { Form } from "react-bootstrap";
+import { Palette } from "../../config/palette";
 
 interface SignupFormProps {
   onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
@@ -15,9 +17,9 @@ export default function SignupForm({ onSubmit }: SignupFormProps) {
         <Form.Label>Slaptažodis:</Form.Label>
         <Form.Control type="password" name="password" required />
       </Form.Group>
-      <Button variant="primary" type="submit">
+      <ColorfulLoadingButton color={Palette.primary} type="submit">
         Registruotis
-      </Button>
+      </ColorfulLoadingButton>
     </Form>
   );
 }

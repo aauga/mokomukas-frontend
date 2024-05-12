@@ -1,4 +1,4 @@
-import { Alert, Container } from "react-bootstrap";
+import { Alert, Container, Stack } from "react-bootstrap";
 
 import LoginForm from "../components/login/LoginForm";
 import getErrorMessage from "../utils/getErrorMessage";
@@ -11,13 +11,23 @@ export default function LoginPage() {
 
   return (
     <Container>
-      <h1 className="my-4">Prisijungimas</h1>
+      <Stack
+        gap={3}
+        className="my-4"
+        style={{
+          backgroundColor: "white",
+          borderRadius: "16px",
+          padding: "16px",
+        }}
+      >
+        <h2>Prisijungimas prie sistemos</h2>
 
-      {login.isError && (
-        <Alert variant="danger">{getErrorMessage(login.error)}</Alert>
-      )}
+        {login.isError && (
+          <Alert variant="danger">{getErrorMessage(login.error)}</Alert>
+        )}
 
-      <LoginForm onSubmit={onSubmit} />
+        <LoginForm onSubmit={onSubmit} />
+      </Stack>
     </Container>
   );
 

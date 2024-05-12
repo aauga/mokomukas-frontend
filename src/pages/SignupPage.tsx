@@ -1,4 +1,4 @@
-import { Alert, Container } from "react-bootstrap";
+import { Alert, Container, Stack } from "react-bootstrap";
 
 import SignupForm from "../components/signup/SignupForm";
 import getErrorMessage from "../utils/getErrorMessage";
@@ -11,13 +11,23 @@ export default function SignupPage() {
 
   return (
     <Container>
-      <h1 className="my-4">Registracija</h1>
+      <Stack
+        gap={3}
+        className="my-4"
+        style={{
+          backgroundColor: "white",
+          borderRadius: "16px",
+          padding: "16px",
+        }}
+      >
+        <h2>Registracija</h2>
 
-      {signup.isError && (
-        <Alert variant="danger">{getErrorMessage(signup.error)}</Alert>
-      )}
+        {signup.isError && (
+          <Alert variant="danger">{getErrorMessage(signup.error)}</Alert>
+        )}
 
-      <SignupForm onSubmit={onSubmit} />
+        <SignupForm onSubmit={onSubmit} />
+      </Stack>
     </Container>
   );
 

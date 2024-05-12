@@ -1,5 +1,6 @@
+import { ColorfulLoadingButton } from "../common/ColorfulLoadingButton";
 import { Form } from "react-bootstrap";
-import { LoadingButton } from "../common/LoadingButton";
+import { Palette } from "../../config/palette";
 
 interface LoginFormProps {
   loading?: boolean;
@@ -20,9 +21,13 @@ export default function SignupForm({
         <Form.Label>Slaptažodis:</Form.Label>
         <Form.Control type="password" name="password" required />
       </Form.Group>
-      <LoadingButton variant="primary" type="submit" loading={loading}>
+      <ColorfulLoadingButton
+        color={Palette.primary}
+        type="submit"
+        loading={loading}
+      >
         Prisijungti
-      </LoadingButton>
+      </ColorfulLoadingButton>
     </Form>
   );
 }
