@@ -4,6 +4,7 @@ import LoginPage from "../pages/LoginPage";
 import ProtectedRoute from "../components/common/ProtectedRoute";
 import Root from "./Root";
 import SignupPage from "../pages/SignupPage";
+import SingleLessonPage from "../pages/SingleLessonPage";
 import TaskPage from "../pages/TaskPage";
 import { createBrowserRouter } from "react-router-dom";
 
@@ -19,6 +20,10 @@ export const router = createBrowserRouter([
       {
         path: "/instructions",
         element: <InstructionsPage />,
+      },
+      {
+        path: "/lessons/:lessonId/instructions",
+        element: <SingleLessonPage />,
       },
       {
         path: "/lessons/:lessonId",

@@ -55,7 +55,7 @@ export default function LessonCard({ lesson, status }: LessonCardProps) {
   }
 
   function onClick() {
-    const path = `/lessons/${lesson.id}`;
+    const path = `/lessons/${lesson.id}/instructions`;
 
     if (status === LessonStatus.STARTED) {
       return navigate(path);
