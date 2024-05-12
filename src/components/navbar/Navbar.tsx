@@ -1,8 +1,14 @@
+import { BsFillHeartFill, BsPiggyBankFill } from "react-icons/bs";
+
 import BootstrapNavbar from "react-bootstrap/Navbar";
+import { BsLightningFill } from "react-icons/bs";
 import Container from "react-bootstrap/Container";
 import LogoutLink from "./LogoutLink";
 import Nav from "react-bootstrap/Nav";
 import { NavLink } from "react-router-dom";
+import { Palette } from "../../config/palette";
+import ResourceBox from "./ResourceBox";
+import { Stack } from "react-bootstrap";
 import { useAuthenticatedUser } from "../../api/sessions/api";
 
 export function Navbar() {
@@ -33,9 +39,20 @@ export function Navbar() {
 
           {loggedIn ? (
             <Nav className="ms-auto">
-              <BootstrapNavbar.Text>{user.health ?? 0}</BootstrapNavbar.Text>
-              <BootstrapNavbar.Text>{user.level ?? 0}</BootstrapNavbar.Text>
-              <BootstrapNavbar.Text>{user.money ?? 0}</BootstrapNavbar.Text>
+              <Stack direction="horizontal" gap={2}>
+                <ResourceBox backgroundColor={Palette.health}>
+                  <BsFillHeartFill size={13} />
+                  {user.health ?? 0}
+                </ResourceBox>
+                <ResourceBox backgroundColor={Palette.level}>
+                  <BsLightningFill size={13} />
+                  {user.level ?? 0}
+                </ResourceBox>
+                <ResourceBox backgroundColor={Palette.money}>
+                  <BsPiggyBankFill size={13} />
+                  {user.money ?? 0}
+                </ResourceBox>
+              </Stack>
             </Nav>
           ) : (
             <Nav className="ms-auto">

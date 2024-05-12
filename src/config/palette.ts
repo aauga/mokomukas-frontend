@@ -3,4 +3,7 @@ export const Palette = {
   secondary: "#00FF00",
   lightgray: "#efefef",
   gray: "#777",
+  health: "#FB5959",
+  level: "#5990FB",
+  money: "#FBA759",
 };
