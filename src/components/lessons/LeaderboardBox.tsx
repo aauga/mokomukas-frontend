@@ -30,7 +30,7 @@ export default function LeaderboardBox() {
         padding: "16px",
       }}
     >
-      <h3>Lyderių lentelė</h3>
+      <h3>📊 Lyderių lentelė</h3>
 
       {user && (
         <p style={{ color: Palette.primary }}>

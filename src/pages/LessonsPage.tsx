@@ -31,7 +31,7 @@ export default function LessonsPage() {
               padding: "16px",
             }}
           >
-            <h3>Pamokų sąrašas</h3>
+            <h3>📚 Pamokų sąrašas</h3>
 
             <LessonsRow lessons={lessons ?? {}} />
           </div>

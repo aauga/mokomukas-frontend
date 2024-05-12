@@ -19,7 +19,7 @@ export default function ShopBox() {
         padding: "16px",
       }}
     >
-      <h3>Parduotuvė</h3>
+      <h3>🛒 Parduotuvė</h3>
 
       <Stack direction="vertical" gap={2}>
         <LoadingButton
