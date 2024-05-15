@@ -20,7 +20,7 @@ export default function ProtectedRoute({
     return <Spinner />;
   }
 
-  if (!loggedIn || (loggedIn && unauthorizedOnly)) {
+  if ((!loggedIn && !unauthorizedOnly) || (loggedIn && unauthorizedOnly)) {
     navigate("/");
   }
 
