@@ -7,10 +7,10 @@ import {
 import { useContext, useState } from "react";
 
 import ConfirmClickModal from "../components/templates/ConfirmClickModal";
+import LuminorTemplate from "./LuminorTemplate";
 import { Palette } from "../config/palette";
 import { Spinner } from "react-bootstrap";
 import { TaskPageContext } from "../contexts/TaskPageContext";
-import TestTemplate from "./TestTemplate";
 import { UserTaskStatus } from "../types/user-task";
 import { useTaskElements } from "../api/task-elements/api";
 import { useUserTaskElements } from "../api/user-task-elements/api";
@@ -21,7 +21,7 @@ type TemplateProps = {
 };
 
 const templates = new Map<string, JSX.Element>([
-  ["test_template", <TestTemplate />],
+  ["luminor_template", <LuminorTemplate />],
   ["test_template_2", <h1>asdf</h1>],
 ]);
 
@@ -62,7 +62,7 @@ export default function Template(props: TemplateProps) {
       <ConfirmClickModal />
       <div
         style={{
-          borderColor: Palette.lightgray,
+          borderColor: Palette.gray,
           borderWidth: 2,
           borderStyle: "solid",
         }}

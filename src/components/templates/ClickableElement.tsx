@@ -21,6 +21,7 @@ export default function ClickableElement({
     <div
       className={getClassName(taskElementId, userTaskElements)}
       onClick={onClick}
+      style={{ width: "fit-content" }}
     >
       {children}
     </div>
