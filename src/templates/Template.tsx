@@ -8,6 +8,7 @@ import { useContext, useState } from "react";
 
 import ConfirmClickModal from "../components/templates/ConfirmClickModal";
 import DpdTemplate from "./DpdTemplate";
+import FacebookTemplate from "./FacebookTemplate";
 import LuminorTemplate from "./LuminorTemplate";
 import { Palette } from "../config/palette";
 import { Spinner } from "react-bootstrap";
@@ -24,6 +25,7 @@ type TemplateProps = {
 const templates = new Map<string, JSX.Element>([
   ["luminor_template", <LuminorTemplate />],
   ["dpd_template", <DpdTemplate />],
+  ["facebook_template", <FacebookTemplate />],
 ]);
 
 export default function Template(props: TemplateProps) {
