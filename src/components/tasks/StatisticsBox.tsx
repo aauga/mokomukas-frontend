@@ -49,7 +49,7 @@ export default function StatisticsBox() {
             backgroundColor="#3BD35C"
             headerText="Teisingai pažymėta"
             value={`${statistics.data!.correctly_clicked_elements} / ${
-              statistics.data!.total_elements
+              statistics.data!.total_correct_elements
             }`}
           />
         </Col>
