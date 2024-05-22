@@ -4,9 +4,7 @@ import {
   TemplateContext,
   TemplateContextType,
 } from "../contexts/TemplateContext";
-import { useContext, useState } from "react";
 
-import ConfirmClickModal from "../components/templates/ConfirmClickModal";
 import DpdTemplate from "./DpdTemplate";
 import FacebookTemplate from "./FacebookTemplate";
 import LuminorTemplate from "./LuminorTemplate";
@@ -14,6 +12,7 @@ import { Palette } from "../config/palette";
 import { Spinner } from "react-bootstrap";
 import { TaskPageContext } from "../contexts/TaskPageContext";
 import { UserTaskStatus } from "../types/user-task";
+import { useContext } from "react";
 import { useTaskElements } from "../api/task-elements/api";
 import { useUserTaskElements } from "../api/user-task-elements/api";
 import { useUserTasks } from "../api/user-tasks/api";
@@ -42,9 +41,6 @@ export default function Template(props: TemplateProps) {
     userTasks.isSuccess
   );
 
-  const [selectedUserTaskElementId, setSelectedUserTaskElementId] =
-    useState<number>();
-
   if (
     userTasks.isLoading ||
     userTaskElements.isLoading ||
@@ -56,13 +52,10 @@ export default function Template(props: TemplateProps) {
   const contextValues: TemplateContextType = {
     taskElements: taskElements.data!,
     userTaskElements: userTaskElements.data!,
-    selectedUserTaskElementId,
-    setSelectedUserTaskElementId,
   };
 
   return (
     <TemplateContext.Provider value={contextValues}>
-      <ConfirmClickModal />
       <div
         style={{
           borderColor: Palette.gray,

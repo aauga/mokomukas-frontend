@@ -1,6 +1,7 @@
 import { TemplateContext } from "../../contexts/TemplateContext";
 import getClassName from "../../utils/getClassName";
 import { useContext } from "react";
+import { useMarkUserTaskElement } from "../../api/user-task-elements/api";
 
 export interface ClickableElementProps {
   taskElementId: number;
@@ -11,11 +12,11 @@ export default function ClickableElement({
   taskElementId,
   children,
 }: ClickableElementProps) {
-  const { userTaskElements, setSelectedUserTaskElementId } =
-    useContext(TemplateContext)!;
+  const { userTaskElements } = useContext(TemplateContext)!;
   const userTaskElement = userTaskElements.find(
     (ute) => ute.task_element_id === taskElementId
   );
+  const markElement = useMarkUserTaskElement(userTaskElement!.id);
 
   return (
     <div
@@ -32,6 +33,6 @@ export default function ClickableElement({
       return;
     }
 
-    setSelectedUserTaskElementId(userTaskElement!.id);
+    markElement.mutate();
   }
 }
