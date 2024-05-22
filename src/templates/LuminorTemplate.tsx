@@ -96,7 +96,7 @@ function LetterContent() {
 
         <ClickableElement taskElementId={5}>
           <Button
-            className="mb-4"
+            className="m-2"
             href="http://lumin.or.bankas.xyz/page?id=12345"
             onClick={(event) => event.preventDefault()}
           >

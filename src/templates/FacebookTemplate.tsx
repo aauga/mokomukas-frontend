@@ -40,7 +40,7 @@ function UserInfo() {
       style={{ borderRadius: "16px", backgroundColor: "#fff", padding: "16px" }}
     >
       <Stack direction="horizontal" gap={4}>
-        <ClickableElement taskElementId={15}>
+        <ClickableElement taskElementId={15} noMargin>
           <Image
             src="/images/facebook_template/profile_picture.png"
             alt="Profilio nuotrauka"
@@ -55,7 +55,7 @@ function UserInfo() {
       </Stack>
 
       <ClickableElement taskElementId={20}>
-        <Button>Pridėti į draugus</Button>
+        <Button style={{ margin: 2 }}>Pridėti į draugus</Button>
       </ClickableElement>
     </div>
   );

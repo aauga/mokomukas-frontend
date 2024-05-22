@@ -57,7 +57,7 @@ function Header() {
           width: "fit-content",
         }}
       >
-        <ClickableElement taskElementId={8}>
+        <ClickableElement taskElementId={8} noMargin>
           <div style={{ position: "relative" }}>
             <BsLockFill size={18} />
             <div
@@ -74,7 +74,7 @@ function Header() {
             ></div>
           </div>
         </ClickableElement>
-        <ClickableElement taskElementId={9}>
+        <ClickableElement taskElementId={9} noMargin>
           <span>esiunta-dpdlt.it/page?id=1234</span>
         </ClickableElement>
       </Stack>
