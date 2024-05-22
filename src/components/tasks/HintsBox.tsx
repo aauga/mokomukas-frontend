@@ -59,7 +59,7 @@ export default function HintsBox() {
           color={Palette.primary}
           loading={buyHint.isPending}
           onClick={() => buyHint.mutate()}
-          className="w-100"
+          className="w-100 mt-2"
         >
           Pirkti užuominą
         </ColorfulLoadingButton>
