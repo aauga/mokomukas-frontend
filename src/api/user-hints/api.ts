@@ -27,9 +27,8 @@ export const useBuyHint = (userHintId: number) => {
     mutationFn: async () =>
       (await axiosInstance.post(`/user_hints/${userHintId}/buy`)).data,
     onSuccess: () => {
-      queryClient.invalidateQueries({
-        queryKey: ["user-hints"],
-      });
+      queryClient.invalidateQueries({ queryKey: ["user-hints"] });
+      queryClient.invalidateQueries({ queryKey: ["users"] });
     },
   });
 };
