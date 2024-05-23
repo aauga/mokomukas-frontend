@@ -13,7 +13,7 @@ export default function InstructionsPage() {
           padding: "16px",
         }}
       >
-        <h1>Naudojimosi instrukcijos</h1>
+        <h1>Naudojimo instrukcijos</h1>
 
         <Stack direction="vertical">
           <h6>Koks šių pamokų tikslas?</h6>

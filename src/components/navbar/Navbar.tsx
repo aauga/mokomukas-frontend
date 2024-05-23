@@ -32,7 +32,7 @@ export function Navbar() {
               Pamokos
             </Nav.Link>
             <Nav.Link as={NavLink} to={"/instructions"}>
-              Naudojimosi instrukcijos
+              Naudojimo instrukcijos
             </Nav.Link>
             {loggedIn && <LogoutLink />}
           </Nav>
